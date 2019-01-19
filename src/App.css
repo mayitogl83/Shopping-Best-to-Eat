@@ -37,6 +37,30 @@ body {
   -moz-animation-delay: 0.05s;
   animation-delay: 0.05s;
 }
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.apear-in {
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+.apear-in.two {
+  -webkit-animation-delay: 0.12s;
+  -moz-animation-delay: 0.12s;
+  animation-delay: 0.12s;
+}
 /*nav bar style for cellphone devices*/
 
 .navbar-desktop {
@@ -192,6 +216,7 @@ body {
   position: absolute;
   top: 30%;
   width: 70%;
+  min-width: 5%;
   text-align: center;
 }
 .title-logo {
@@ -310,7 +335,119 @@ body {
 .long-line {
   display: none;
 }
+/*style for logo in about us page*/
+.bgimg-two {
+  background-color: #fff;
+  min-height: 70vh;
+  position: relative;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+.logo-container-two {
+  margin-left: calc((100% - 70%) * 0.5);
+  background-color: #ffffff9c;
+  transform: scale(1.2);
+  top: 30%;
+  width: 70%;
+  min-width: 10%;
+  text-align: center;
+  position: absolute;
+}
+.title-logo-two {
+  margin: 10px 10px 0 10px;
+  color: #0c0d10;
+  font-size: 35px;
+  padding-left: calc((100% - 245px) * 0.5);
+  display: flex;
+  border: 3px solid #0c0d10;
+  border-bottom: none;
+}
+.logo-text-two {
+  text-transform: uppercase;
+  padding: 10px;
+}
+.under-title-logo-two {
+  font-size: 18px;
+  margin: 0 10px 0 10px;
+  border: 3px solid #0c0d10;
+  padding: 10px 15px 0 15px;
+  color: #0c0d10;
+  border-bottom: none;
+}
+.logo-two {
+  background-image: url('./img/Ham.png');
+  min-height: 15vh;
+  position: relative;
+  background-position: center;
+  background-size: 150px;
+  background-repeat: no-repeat;
+  border: 3px solid #0c0d10;
+  border-top: none;
+  margin: 0 10px 0 10px;
+}
+.article-title {
+  margin-left: calc((100% - 300px) * 0.5);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 36px;
+  min-width: 150px;
+  width: 300px;
+  color: #313131;
+  display: flex;
+}
+.line-one {
+  width: 15px;
+  margin-right: 15px;
+  margin-top: 30px;
+  border-top: 2px solid #484848;
+}
+.line-two {
+  width: 15px;
+  margin-left: 15px;
+  margin-top: 30px;
+  border-top: 2px solid #484848;
+}
+.bussines-img {
+  background-image: url('./img/store.jpg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 650px;
+  height: 50vh;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 80%;
+  min-width: 10%;
+  margin-left: calc((100% - 80%) * 0.5);
+}
+.personal-info p {
+  margin-left: calc((100% - 400px) * 0.5);
+  text-align: center;
+  font-size: 22px;
+  width: 400px;
+}
+.shop-button {
+  font-size: 18px;
+  height: 50px;
+  width: 320px;
+  padding: 0;
+  margin-left: calc((100% - 320px) * 0.5);
+  background-color: #0c0d10;
+  margin-bottom: 30px;
+  border: none;
+  color: #fff;
+}
+.shop-button:hover, .shop-button:focus {
+  outline: none;
+  color: #0c0d10;
+  background-color: #ffffff00;
+  transition: 0.4s;
+  cursor: pointer;
+  border: 3px solid #0c0d10;
+}
 @media screen and (min-width:580px) {
+  /*style for main logo*/
   .logo-adjustment {
     width: 100%;
     display: flex;
@@ -357,6 +494,38 @@ body {
   .start-button:hover {
     border-left: none;
   }
+/*style for logo in about us page*/
+.title-logo-two {
+  margin: 20px 20px 0 20px;
+  height: 140px;
+  font-size: 60px;
+  padding-left: calc((100% - 400px) * 0.5);
+}
+.under-title-logo-two {
+  width: 100%;
+  font-size: 19px;
+  margin: 0px 0px 0px 20px;
+  border: 3px solid #0c0d10;
+  padding: 5px;
+  color: #0c0d10;
+  height: 74px;
+}
+.logo-field-two {
+  width: 100%;
+}
+.logo-two {
+  background-size: 110px;
+  min-height: 84px;
+  border: 3px solid #0c0d10;
+  border-left: none;
+  margin: 0px 20px 20px 0px;
+ }
+ .personal-info p {
+   width: 500px;
+   margin-left: calc((100% - 500px) * 0.5);
+   text-align: center;
+   font-size: 22px;
+ }
 }
 @media screen and (min-width:750px) {
   .navbar-cell {
@@ -440,5 +609,26 @@ body {
   }
   .product-price {
     font-size: 15px;
+  }
+  /**/
+  .logo-container-two {
+    margin-left: calc((100% - 500px) * 0.5);
+    width: 500px;;
+  }
+  .personal-info p {
+    margin-left:  calc((100% - 70%) * 0.5);
+    width: 70%;
+    padding: 25px 0px 25px 0px;
+    text-align: center;
+    font-size: 16px;
+  }
+}
+@media screen and (min-width:1000px) {
+  .personal-info p {
+    margin-left:  calc((100% - 700px) * 0.5);
+    width: 700px;
+    padding: 30px 0px 30px 0px;
+    text-align: center;
+    font-size: 14px;
   }
 }

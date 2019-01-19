@@ -6,7 +6,9 @@ class MainPage extends Component {
   render() {
     return(
     <div className="container">
+    <div className="apear-in two">
       <div className="bgimg"></div>
+    </div>
     <div className="fade-in one">
       <div className="logo-container">
         <div className="title-logo">
