@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import MainPage from './MainPage';
+import AboutUs from './AboutUs';
 import './App.css';
 
 class App extends Component {
@@ -49,6 +50,20 @@ class App extends Component {
       document.getElementById("my-sidebar").setAttribute('class', 'my-sidebar');
   }
 
+  goToAnchorCero = () => {
+  setTimeout(function() {
+    window.scrollTo(0, 0);
+  }, 100);
+}
+
+  goToAnchorOne = () => {
+  setTimeout(function() {
+    document.getElementById('product').scrollIntoView({
+    behavior: 'smooth'
+    })
+  }, 100);
+}
+
   render() {
 
     function refreshPage(){
@@ -68,23 +83,29 @@ class App extends Component {
             <div className="bar3"></div>
           </div>
         </div>
-        </div>
+      </div>
       <div id="my-sidebar" className="my-sidebar">
-        <button onClick={this.w3_close} className="w3-button">X</button>
+        <button className="w3-button"
+          onClick={ (event) => {
+            this.w3_close(); this.goToAnchorCero();
+          }}>X</button>
           <div className="menu-items">
             <Link to='/' tabIndex="-1">
               <button id="w3-bar-item" className="w3-bar-item"
-                onClick={ (event) => { this.w3_close(); refreshPage();
-              }}>Home</button>
+                onClick={ (event) => {
+                  this.w3_close(); this.goToAnchorCero();
+                }}>Home</button>
             </Link>
-            <Link to='' tabIndex="-1">
+            <Link to='./aboutus' tabIndex="-1">
               <button id="w3-bar-item" className="w3-bar-item"
-                onClick={ (event) => { this.w3_close();
+                onClick={ (event) => {
+                  this.w3_close(); this.goToAnchorCero();
               }}>About</button>
             </Link>
             <Link to='' tabIndex="-1">
               <button id="w3-bar-item" className="w3-bar-item"
-                onClick={ (event) => { this.w3_close();
+                onClick={ (event) => {
+                  this.w3_close(); this.goToAnchorOne();
               }}>Products</button>
             </Link>
             <Link to='./bookonline' tabIndex="-1">
@@ -97,14 +118,24 @@ class App extends Component {
       <div id="navbar-desktop" className="navbar-desktop">
         <Link to='./' tabIndex="-1">
           <button className="item"
-            onClick={ (event) => { this.w3_close(); }}
-            >Home</button>
+            onClick={ (event) => {
+              this.w3_close(); this.goToAnchorCero();
+            }}
+          >Home</button>
+        </Link>
+        <Link to='./aboutus' tabIndex="-1">
+          <button className="item"
+            onClick={ (event) => {
+              this.w3_close(); this.goToAnchorCero();
+            }}
+          >About</button>
         </Link>
         <Link to='./' tabIndex="-1">
-          <button className="item">About</button>
-        </Link>
-        <Link to='./' tabIndex="-1">
-          <button className="item">Products</button>
+          <button className="item"
+            onClick={ (event) => {
+              this.w3_close(); this.goToAnchorOne();
+            }}
+          >Products</button>
         </Link>
         <Link to='./bookonline' tabIndex="-1">
           <button className="item">Find Us</button>
@@ -121,6 +152,12 @@ class App extends Component {
         <Route exact path='/' render={()=>(
           <MainPage
             products={ this.state.products }
+            onShop={ this.goToAnchorOne }
+          />
+        ) }/>
+        <Route path='/aboutus' render={()=>(
+          <AboutUs
+            onShop={ this.goToAnchorOne }
           />
         ) }/>
       </div>

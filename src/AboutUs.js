@@ -5,6 +5,8 @@ class AboutUs extends Component {
 
   render() {
 
+    const { onShop } = this.props
+
     return (
       <div className="about">
       <div className="bgimg-two"></div>
@@ -50,8 +52,12 @@ class AboutUs extends Component {
              Make your company stand out and show your visitors who you are.</p>
         </div>
         <div id="start-field" className="start-field">
-        <Link to='./bookonline' tabIndex="-1">
-          <button className="shop-button">Start Shooping ></button>
+        <Link to='./' tabIndex="-1">
+          <button className="shop-button"
+            onClick={ (event) => {
+              onShop();
+            }}
+          >Start Shooping ></button>
         </Link>
         </div>
       </div>

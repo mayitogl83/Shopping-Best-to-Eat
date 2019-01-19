@@ -4,6 +4,9 @@ import './App.css';
 
 class MainPage extends Component {
   render() {
+
+    const { onShop } = this.props
+
     return(
     <div className="container">
     <div className="apear-in two">
@@ -22,14 +25,19 @@ class MainPage extends Component {
           <div className="logo"></div>
           </div>
           <div id="start-field" className="start-field">
-          <Link to='./bookonline' tabIndex="-1">
-            <button className="start-button">Start Shooping ></button>
+          <Link to='' tabIndex="-1">
+            <button className="start-button"
+              onClick={ (event) => {
+                onShop();
+              }}
+            >Start Shooping ></button>
           </Link>
           </div>
         </div>
       </div>
     </div>
-    <div className="product-container">
+    <div className="apear-in two">
+    <div id="product" className="product-container">
       <div className="product-title">Enjoy Our Special Recommendations</div>
       <div className="product-field">
             {this.props.products.map((product) => (
@@ -46,6 +54,7 @@ class MainPage extends Component {
               </Link>
             ))}
           </div>
+    </div>
     </div>
     </div>
     )

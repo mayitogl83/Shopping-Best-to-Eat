@@ -197,6 +197,7 @@ body {
 }
 /*background area for cellphone devices*/
 .bgimg {
+  width: 100vw;
   background-image: url('./img/meat&knife.jpg');
   min-height: 100vh;
   position: relative;
