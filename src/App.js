@@ -74,7 +74,8 @@ class App extends Component {
       <div className="App">
       <div role="navigation" id="navbar-cell" className="navbar-cell">
         <div className="cart-container">
-          <div className="cart-icon">0</div>
+          <div className="cart-qty-cell">0</div>
+          <div className="cart-icon"></div>
         </div>
         <div className="bar-menu-container">
           <div className="bar-container" onKeyPress={this.w3_open} onClick={this.w3_open} tabIndex="0">
@@ -143,6 +144,7 @@ class App extends Component {
         <div className="topnav-right">
         <Link to='./bookonline' tabIndex="-1">
           <div className="cart-container">
+            <div className="cart-qty">0</div>
             <button className="cart-icon"></button>
           </div>
         </Link>

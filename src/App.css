@@ -76,6 +76,13 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
   display: flex;
 }
+.cart-qty-cell {
+  position: absolute;
+  margin: 23px 30px 50px 20px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
 /*cart style*/
 .cart-container {
   margin-left: 30px;
@@ -93,6 +100,13 @@ body {
   background-position: center;
   background-size: 45px;
   font-size: 0;
+}
+.cart-qty {
+  position: absolute;
+  margin: 23px 30px 50px 30px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
 }
 /*burger menu style*/
 .bar-menu-container {
@@ -182,18 +196,6 @@ body {
   color: #f86917;
   text-decoration: none;
   transition: 0.04s;
-}
-.item:hover {
-  border-top: 3px solid #f86917;
-  cursor: pointer;
-  color: #f86917;
-  transition: 0.3s;
-}
-.item:focus {
-  border-top: 3px solid #0c0d10;
-  outline: none;
-  color: #0c0d10;
-  transition: 0.3s;
 }
 /*background area for cellphone devices*/
 .bgimg {
@@ -486,7 +488,6 @@ body {
     font-size: 15px;
     height: 90px;
     width: 100%;
-    border-left: 3px solid #0c0d10;
     padding: 0;
     margin: 0;
     background-color: #0c0d10;
@@ -558,7 +559,19 @@ body {
     text-align: center;
     padding: 30px;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 14px;
+  }
+  .item:hover {
+    border-top: 3px solid #f86917;
+    cursor: pointer;
+    color: #f86917;
+    transition: 0.3s;
+  }
+  .item:focus {
+    border-top: 3px solid #0c0d10;
+    outline: none;
+    color: #0c0d10;
+    transition: 0.3s;
   }
   .topnav-right {
   float: right;
