@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import MainPage from './MainPage';
 import AboutUs from './AboutUs';
+import FindUs from './FindUs';
 import './App.css';
 
 class App extends Component {
@@ -109,9 +110,9 @@ class App extends Component {
                   this.w3_close(); this.goToAnchorOne();
               }}>Products</button>
             </Link>
-            <Link to='./bookonline' tabIndex="-1">
+            <Link to='./findus' tabIndex="-1">
               <button id="w3-bar-item" className="w3-bar-item"
-                onClick={ (event) => { this.w3_close(); refreshPage();
+                onClick={ (event) => { this.w3_close(); this.goToAnchorCero();
               }}>Find Us</button>
             </Link>
         </div>
@@ -138,8 +139,12 @@ class App extends Component {
             }}
           >Products</button>
         </Link>
-        <Link to='./bookonline' tabIndex="-1">
-          <button className="item">Find Us</button>
+        <Link to='./findus' tabIndex="-1">
+          <button className="item"
+            onClick={ (event) => {
+              this.w3_close(); this.goToAnchorCero();
+            }}
+          >Find Us</button>
         </Link>
         <div className="topnav-right">
         <Link to='./bookonline' tabIndex="-1">
@@ -159,6 +164,11 @@ class App extends Component {
         ) }/>
         <Route path='/aboutus' render={()=>(
           <AboutUs
+            onShop={ this.goToAnchorOne }
+          />
+        ) }/>
+        <Route path='/findus' render={()=>(
+          <FindUs
             onShop={ this.goToAnchorOne }
           />
         ) }/>

@@ -1,15 +1,19 @@
 html {
+  width: 100%;
+  min-width: 10%;
   height: 100%;
+  min-height: 10%;
   scroll-behavior: smooth;
 }
 body {
+  width: 100%;
+  min-width: 10%;
   height: 100%;
-  min-width: 450px;
+  min-height: 10%;
   margin: 0;
   padding: 0;
   overflow-y: scroll;
   overflow-x: hidden;
-  transform-style: preserve-3d;
   font: 400 15px/1.8 "Lato", sans-serif;
   color: #545353;
 }
@@ -88,6 +92,9 @@ body {
   margin-left: 30px;
   width: 50%;
 }
+.cart-container:focus {
+  outline: none;
+}
 .cart-icon {
   background-image: url('./img/Shopping_Bag-512.png');
   margin-top: 10px;
@@ -103,9 +110,9 @@ body {
 }
 .cart-qty {
   position: absolute;
-  margin: 23px 30px 50px 30px;
+  margin: 27px 30px 50px 30px;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
 }
 /*burger menu style*/
@@ -213,12 +220,12 @@ body {
   z-index: -1;
 }
 .logo-container {
-  margin-left: calc((100% - 70%) * 0.5);
+  margin-left: calc((100% - 270px) * 0.5);
   background-color: #ffffff9c;
   transform: scale(1.2);
   position: absolute;
-  top: 30%;
-  width: 70%;
+  top: 200px;
+  width: 270px;
   min-width: 5%;
   text-align: center;
 }
@@ -245,7 +252,7 @@ body {
 }
 .logo {
   background-image: url('./img/Ham.png');
-  min-height: 15vh;
+  min-height: 100px;
   position: relative;
   background-position: center;
   background-size: 150px;
@@ -276,6 +283,9 @@ body {
   cursor: pointer;
   border: 3px solid #0c0d10;
 }
+.product-container {
+  position: relative;
+}
 .product-title {
   padding: 0 10px 0 10px;
   text-align: center;
@@ -297,7 +307,7 @@ body {
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: 650px;
-  height: 40vh;
+  height: 350px;
   width: 100%;
 }
 .cheese-img:hover, .steak-img:hover, .pepper-img:hover {
@@ -349,16 +359,17 @@ body {
   z-index: -1;
 }
 .logo-container-two {
-  margin-left: calc((100% - 70%) * 0.5);
+  margin-left: calc((100% - 300px) * 0.5);
   background-color: #ffffff9c;
   transform: scale(1.2);
-  top: 30%;
-  width: 70%;
+  top: 200px;
+  width: 300px;
   min-width: 10%;
   text-align: center;
   position: absolute;
 }
 .title-logo-two {
+  min-width: 225px;
   margin: 10px 10px 0 10px;
   color: #0c0d10;
   font-size: 35px;
@@ -372,6 +383,7 @@ body {
   padding: 10px;
 }
 .under-title-logo-two {
+  min-width: 201px;
   font-size: 18px;
   margin: 0 10px 0 10px;
   border: 3px solid #0c0d10;
@@ -381,7 +393,8 @@ body {
 }
 .logo-two {
   background-image: url('./img/Ham.png');
-  min-height: 15vh;
+  min-height: 100px;
+  min-width: 231px;
   position: relative;
   background-position: center;
   background-size: 150px;
@@ -390,8 +403,12 @@ body {
   border-top: none;
   margin: 0 10px 0 10px;
 }
+.personal-info {
+  margin-top: 100px;
+}
 .article-title {
   margin-left: calc((100% - 300px) * 0.5);
+  margin-top: 20px;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 36px;
@@ -425,10 +442,11 @@ body {
   margin-left: calc((100% - 80%) * 0.5);
 }
 .personal-info p {
-  margin-left: calc((100% - 400px) * 0.5);
+  margin-left: calc((100% - 360px) * 0.5);
   text-align: center;
   font-size: 22px;
-  width: 400px;
+  width: 320px;
+  padding: 0px 20px 0px 20px;
 }
 .shop-button {
   font-size: 18px;
@@ -449,11 +467,94 @@ body {
   cursor: pointer;
   border: 3px solid #0c0d10;
 }
+.contact-field {
+  text-align: center;
+}
+#message-form {
+  padding: 30px;
+  width: 450px;
+  min-width: 154px;
+  margin-left: calc((100% - 510px) * 0.5);
+}
+.msg-field {
+  color: #777;
+  background-color: white;
+  text-align: center;
+  padding: 5px 81px;
+  margin-top: 85px;
+}
+.msg-title {
+  text-align: left;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #686868;
+}
+.input-form {
+  width: 100%;
+  margin-top: 60px;
+}
+.input-field {
+  padding: 0px 50px 0px 50px;
+  margin-top: 20px;
+}
+.input-user, .input-email, .input-subject {
+  padding-left: 5px;
+  width: 98%;
+  border: 1px solid;
+  height: 30px;
+}
+ .input-msg {
+  padding-left: 5px;
+  width: 98%;
+  border: 1px solid;
+  height: 60px;
+}
+.send-button {
+  margin-right: 50px;
+  margin-top: 5px;
+  cursor: pointer;
+  height: 30px;
+  width: 150px;
+  color: #fff;
+  border: none;
+  background-color: #ec7735;
+  float: right;
+}
+.send-button:hover {
+  cursor: pointer;
+  color: #ec7735;
+  background-color: #0c0d10;
+  transition: 0.2s;
+}
+.send-button:focus {
+  outline:  none;
+  color: #ec7735;
+  background-color: #0c0d10;
+  transition: 0.2s;
+}
+.contact-info {
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+.contact-info p {
+  color: #0c0d10;
+  letter-spacing: 2px;
+  margin-top: -20px;
+}
 @media screen and (min-width:580px) {
+  .cart-container:focus {
+    outline: none;
+  }
   /*style for main logo*/
   .logo-adjustment {
+    min-width: 411px;
     width: 100%;
     display: flex;
+  }
+  .logo-container {
+    margin-left: calc((100% - 430px) * 0.5);
+    width: 430px;
   }
   .title-logo {
     margin: 20px 20px 0 20px;
@@ -497,7 +598,11 @@ body {
     border-left: none;
   }
 /*style for logo in about us page*/
+.logo-container-two {
+    margin-left: calc((100% - 445px) * 0.5);
+}
 .title-logo-two {
+  min-width: 365px;
   margin: 20px 20px 0 20px;
   height: 140px;
   font-size: 60px;
@@ -521,6 +626,7 @@ body {
   border: 3px solid #0c0d10;
   border-left: none;
   margin: 0px 20px 20px 0px;
+  min-width: 150px;
  }
  .personal-info p {
    width: 500px;
@@ -532,6 +638,9 @@ body {
 @media screen and (min-width:750px) {
   .navbar-cell {
     display: none;
+  }
+  .cart-container:focus {
+    outline: none;
   }
   .showup {
     display: none;
@@ -559,7 +668,7 @@ body {
     text-align: center;
     padding: 30px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 12px;
   }
   .item:hover {
     border-top: 3px solid #f86917;
@@ -604,7 +713,7 @@ body {
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 800px;
-    height: 60vh;
+    height: 400px;
     width: 28vw;
   }
   .cheese-img:hover, .steak-img:hover, .pepper-img:hover {
@@ -624,10 +733,10 @@ body {
   .product-price {
     font-size: 15px;
   }
-  /**/
+  /*style for find us page*/
   .logo-container-two {
     margin-left: calc((100% - 500px) * 0.5);
-    width: 500px;;
+    width: 500px;
   }
   .personal-info p {
     margin-left:  calc((100% - 70%) * 0.5);
@@ -638,6 +747,9 @@ body {
   }
 }
 @media screen and (min-width:1000px) {
+  .cart-container:focus {
+    outline: none;
+  }
   .personal-info p {
     margin-left:  calc((100% - 700px) * 0.5);
     width: 700px;
