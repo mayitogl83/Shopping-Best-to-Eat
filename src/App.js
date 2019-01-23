@@ -51,6 +51,15 @@ class App extends Component {
       document.getElementById("my-sidebar").setAttribute('class', 'my-sidebar');
   }
 
+  show_cart = ()=> {
+    document.getElementById('cart-menu').setAttribute('class', 'slide');
+    document.getElementById('page-content').setAttribute('style','filter: blur(3px); -webkit-filter: blur(3px)');
+  }
+  close_cart = ()=> {
+    document.getElementById('cart-menu').setAttribute('class', 'cart-menu');
+    document.getElementById('page-content').removeAttribute('style','filter: blur(3px); -webkit-filter: blur(3px)');
+  }
+
   goToAnchorCero = () => {
   setTimeout(function() {
     window.scrollTo(0, 0);
@@ -73,12 +82,24 @@ class App extends Component {
 
     return (
       <div className="App">
-      <div role="navigation" id="navbar-cell" className="navbar-cell">
-        <div className="cart-container">
-          <div className="cart-qty-cell">0</div>
-          <div className="cart-icon"></div>
+      <div id="cart-menu" className="cart-menu">
+        <div className="cart-head">
+          <div className="cart-title">Cart
+            <div className="cart-goback"
+              onClick={this.close_cart}
+            >X</div>
+          </div>
         </div>
-        <div className="bar-menu-container">
+      </div>
+      <div role="navigation" id="navbar-cell" className="navbar-cell">
+        <div className="cart-container"
+          onKeyPress={this.show_cart} onClick={this.show_cart}>
+          <div className="cart-qty-cell">0</div>
+          <div className="cart-icon">
+          </div>
+        </div>
+        <div className="bar-menu-container"
+          onClick={this.close_cart}>
           <div className="bar-container" onKeyPress={this.w3_open} onClick={this.w3_open} tabIndex="0">
             <div className="bar1"></div>
             <div className="bar2"></div>
@@ -118,6 +139,9 @@ class App extends Component {
         </div>
       </div>
       <div id="navbar-desktop" className="navbar-desktop">
+        <div id="item-container"
+        className="item-container"
+        onClick={this.close_cart}>
         <Link to='./' tabIndex="-1">
           <button className="item"
             onClick={ (event) => {
@@ -146,16 +170,18 @@ class App extends Component {
             }}
           >Find Us</button>
         </Link>
+        </div>
         <div className="topnav-right">
-        <Link to='./bookonline' tabIndex="-1">
-          <div className="cart-container">
+          <div className="cart-container"
+          onKeyPress={this.show_cart} onClick={this.show_cart}>
             <div className="cart-qty">0</div>
             <button className="cart-icon"></button>
           </div>
-        </Link>
       </div>
       </div>
-      <div id="page-content" className="content">
+      <div id="page-content"
+      className="content"
+      onClick={this.close_cart}>
         <Route exact path='/' render={()=>(
           <MainPage
             products={ this.state.products }
