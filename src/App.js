@@ -292,9 +292,9 @@ class App extends Component {
             onShop={ this.goToAnchorOne }
           />
         ) }/>
-      </div>
-      <div className="footer">
-        <div className="footer-info">© 2023 by BEST TO EAT. Proudly created by SOLVED CODE</div>
+        <div className="footer">
+          <div className="footer-info">© 2023 by BEST TO EAT. Proudly created by SOLVED CODE</div>
+        </div>
       </div>
       </div>
     );
