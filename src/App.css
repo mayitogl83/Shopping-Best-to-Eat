@@ -137,6 +137,7 @@ body {
   margin: 6px 6px 6px 6px;
   transition: 0.4s;
 }
+/*Cart style */
 .cart-menu {
   background-color: #0c0d0d;
   text-align: center;
@@ -167,13 +168,90 @@ body {
   margin-top: 80px;
   background-color: #f7782f;
 }
+.cart-content {
+  background-color: transparent;
+}
 .cart-goback {
+  height: 37px;
+  width: 37px;
+  border-radius: 25px;
   margin-right: 10px;
   font-size: 22px;
   cursor: pointer;
   float: right;
 }
-.my-sidebar {
+.cart-goback:hover {
+  color: #f7782f;
+  background-color: #0c0d0d;
+  transition: 0.3s;
+}
+.item-header {
+  margin-top: 10px;
+  display: block;
+}
+.item-name {
+  margin-left: -72px;
+  padding-top: 5px;
+}
+.remove-item {
+  height: 27px;
+  width: 27px;
+  border-radius: 25px;
+  float: right;
+  margin-right: 25px;
+  cursor: pointer;
+}
+.remove-item:hover {
+  color: #0c0d0d;
+  background-color: #ddd;
+  transition: 0.3s;
+}
+.item-check-field {
+  display: flex;
+}
+.item-check-detail {
+  display: flex;
+  margin: 20px;
+}
+.item-check-price {
+  color: #e28149;
+  margin-left: 2px;
+}
+.cheese-item, .bacon-item, .olive-item {
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 185px;
+  width: 175px;
+  height: 100px;
+  margin-left: 25px;
+}
+.cheese-item {
+  background-image: url('./img/cheese.jpg');
+}
+.bacon-item {
+  background-image: url('./img/steak.jpg');
+}
+.olive-item {
+  background-image: url('./img/pepper.jpg');
+}
+.cart-items-qty-content {
+  margin-left: 25px;
+  display: flex;
+}
+.cart-items-qty {
+  margin-left: 100px;
+  margin-top: 150px;
+}
+.total-price-header {
+  display: flex;
+  margin-left: 25px;
+}
+.total-price {
+  color: #e28149;
+  margin-left: 2px;
+}
+/*Pop up menu for cellphone devices*/
+.popup-menu {
   text-align: center;
   display: block;
   width: 100%;
@@ -321,14 +399,14 @@ body {
   border: 3px solid #0c0d10;
 }
 .product-container {
+  background: #fff;
   position: relative;
 }
 .product-title {
-  padding: 0 10px 0 10px;
+  padding: 35px 10px 0 10px;
   text-align: center;
   letter-spacing: 3px;
   font-size: 30px;
-  padding-top: 20px;
 }
 .cheese-img {
   background-image: url('./img/cheese.jpg');
@@ -441,7 +519,9 @@ body {
   margin: 0 10px 0 10px;
 }
 .personal-info {
-  margin-top: 100px;
+  background: #fff;
+  margin-top: 85px;
+  padding-top: 5px;
 }
 .article-title {
   margin-left: calc((100% - 300px) * 0.5);
@@ -579,6 +659,86 @@ body {
   letter-spacing: 2px;
   margin-top: -20px;
 }
+/*style for cell devices in product check page*/
+.product-check-container {
+  padding-top: 120px;
+  margin-left: 20px;
+  overflow-y: hidden;
+  height: calc(width * 1.75);
+}
+.product-check-field {
+  display: block;
+}
+.exmpl-one, .exmpl-two, .exmpl-three {
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 400px;
+}
+.exmpl-one {
+  background-image: url('./img/cheese.jpg');
+}
+.exmpl-two {
+  background-image: url('./img/steak.jpg');
+}
+.exmpl-three {
+  background-image: url('./img/pepper.jpg');
+}
+.product-check-path {
+  font-size: 25px;
+  margin: 20px 10px 50px 5px;
+}
+.product-check-name {
+  text-transform: uppercase;
+  font-size: 28px;
+}
+.product-check-price {
+  font-size: 26px;
+  color: #f86917;
+}
+.product-check-qty input {
+  font-size: 20px;
+  padding-left: 10px;
+  height: 30px;
+}
+.product-check-add {
+  margin: 20px 0px 20px 0px;
+}
+.add-button {
+  text-transform: uppercase;
+  font-size: 28px;
+  width: 300px;
+  height: 50px;
+  border: none;
+  color: #fff;
+  background-color: #f86917;
+}
+.add-button:hover, .add-button:focus {
+  color: #f86917;
+  background-color: black;
+  cursor: pointer;
+}
+.product-check-info-field {
+  margin: 10px;
+}
+.product-check-info-title {
+  text-transform: uppercase;
+  font-size: 28px;
+}
+.product-check-description {
+  font-size: 24px;
+}
+.divisor-long-line {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #484848;
+  width: 90%;
+}
+.product-check-policy {
+  font-size: 25px;
+  margin-bottom: 30px;
+}
 @media screen and (min-width:580px) {
   .cart-container:focus {
     outline: none;
@@ -670,6 +830,76 @@ body {
    margin-left: calc((100% - 500px) * 0.5);
    text-align: center;
    font-size: 22px;
+ }
+ /*style for tablet devices in product check page*/
+ .product-check-container {
+   padding-top: 120px;
+   margin-left: 20px;
+   overflow-y: hidden;
+   height: calc(width * 1.75);
+ }
+ .exmpl-one, .exmpl-two, .exmpl-three {
+   width: 100%;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   min-height: 400px;
+ }
+ .product-check-path {
+   font-size: 25px;
+   margin: 20px 10px 50px 5px;
+ }
+ .product-check-name {
+   text-transform: uppercase;
+   font-size: 28px;
+ }
+ .product-check-price {
+   font-size: 26px;
+   color: #f86917;
+ }
+ .product-check-qty input {
+   font-size: 20px;
+   padding-left: 10px;
+   height: 30px;
+ }
+ .product-check-add {
+   margin: 20px 0px 20px 0px;
+ }
+ .add-button {
+   text-transform: uppercase;
+   font-size: 28px;
+   width: 300px;
+   height: 50px;
+   border: none;
+   color: #fff;
+   background-color: #f86917;
+ }
+ .add-button:hover, .add-button:focus {
+   color: #f86917;
+   background-color: black;
+   cursor: pointer;
+ }
+ .product-check-info-field {
+   margin: 10px;
+ }
+ .product-check-info-title {
+   text-transform: uppercase;
+   font-size: 28px;
+ }
+ .product-check-description {
+   padding-right: 50px;
+   font-size: 24px;
+ }
+ .divisor-long-line {
+   margin-top: 30px;
+   margin-bottom: 30px;
+   border-bottom: 1px solid #484848;
+   width: 90%;
+ }
+ .product-check-policy {
+   font-size: 25px;
+   padding-right: 50px;
+   margin-bottom: 30px;
  }
 }
 @media screen and (min-width:750px) {
@@ -790,6 +1020,60 @@ body {
     text-align: center;
     font-size: 16px;
   }
+  /*style for desktop devices in product check page*/
+  .product-check-container {
+    padding-top: 120px;
+    margin-left: 20px;
+    overflow-y: hidden;
+    height: calc(width * 1.75);
+  }
+  .product-check-path {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+  .product-check-field {
+    display: flex;
+  }
+  .exmpl-one, .exmpl-two, .exmpl-three {
+    margin-top: 40px;
+    min-height: 405px;
+  }
+  .product-check-detail {
+    margin-left: 18px;
+    width: 50%;
+  }
+  .product-check-name {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+.product-check-price {
+    font-size: 18px;
+  }
+  .product-check-qty input {
+    font-size: 17px;
+    padding-left: 10px;
+    height: 20px;
+}
+  .product-check-info-field {
+    width: 50%;
+    margin-left: 20px;
+  }
+  .product-check-info-title {
+    font-size: 20px;
+  }
+  .product-check-description {
+    padding-right: 50px;
+    font-size: 16px;
+  }
+  .product-check-policy {
+    font-size: 16px;
+    padding-right: 50px;
+    margin-bottom: 30px;
+  }
+  .add-button {
+    font-size: 18px;
+  }
 }
 @media screen and (min-width:1000px) {
   .cart-container:focus {
@@ -800,6 +1084,63 @@ body {
     width: 700px;
     padding: 30px 0px 30px 0px;
     text-align: center;
+    font-size: 14px;
+  }
+  /*style for higher desktop devices in product check page*/
+  .product-check-container {
+    padding-top: 120px;
+    margin-left: 20px;
+    overflow-y: hidden;
+    height: calc(width * 1.75);
+  }
+  .product-check-field {
+    margin-left: calc((100% - 65vw) * 0.5);
+    width: 65vw;
+    display: flex;
+  }
+  .product-check-path {
+    margin-left: 18%;
+    font-size: 18px;
+}
+  .product-check-field {
+    display: flex;
+  }
+  .product-check-detail {
+    margin-left: 20px;
+    width: 50%;
+  }
+  .exmpl-one, .exmpl-two, .exmpl-three {
+    min-height: 400px;
+}
+  .product-check-name {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  .product-check-price {
+    font-size: 14px;
+  }
+  .product-check-info-field {
+    width: 50%;
+    margin-left: 20px;
+  }
+  .product-check-info-title {
+    font-size: 16px;
+  }
+  .product-check-description {
+    padding-right: 50px;
+    font-size: 14px;
+  }
+  .product-check-policy {
+    font-size: 14px;
+    padding-right: 50px;
+    margin-bottom: 30px;
+  }
+  .product-check-qty input {
+    font-size: 14px;
+    padding-left: 10px;
+    height: 20px;
+}
+  .add-button {
     font-size: 14px;
   }
 }

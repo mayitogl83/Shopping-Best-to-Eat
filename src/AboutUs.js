@@ -5,10 +5,14 @@ class AboutUs extends Component {
 
   render() {
 
+    function refreshPage() {
+      window.location.reload();
+  }
+
     const { onShop } = this.props
 
     return (
-      <div className="about">
+      <div id="qty-input" className="about">
       <div className="bgimg-two"></div>
       <div className="fade-in one">
         <div className="logo-container-two">
@@ -55,7 +59,7 @@ class AboutUs extends Component {
         <Link to='./' tabIndex="-1">
           <button className="shop-button"
             onClick={ (event) => {
-              onShop();
+              onShop(); refreshPage();
             }}
           >Start Shooping ></button>
         </Link>

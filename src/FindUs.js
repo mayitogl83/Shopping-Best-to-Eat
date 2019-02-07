@@ -6,7 +6,7 @@ class FindUs extends Component {
   render() {
 
     return (
-      <div className="about">
+      <div id="qty-input" className="about">
         <div className="bgimg-two"></div>
         <div className="fade-in one">
         <div className="logo-container-two">

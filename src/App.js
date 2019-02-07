@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import MainPage from './MainPage';
+import CheckingProduct from './CheckingProduct';
 import AboutUs from './AboutUs';
 import FindUs from './FindUs';
 import './App.css';
@@ -10,45 +11,55 @@ class App extends Component {
 
   state = {
     products: [
-      {
+        {
         "id": "Cheeses",
         "title": "FRENCH BRIENS CHEESE",
-        "description": "Describe your service here for a newborn session. What makes it great? Use short catchy text to tell people what you offer, and the benefits they will receive. A great description gets readers in the mood, and makes them more likely to go ahead and book.",
-        "info": "1 hr | Photo Session",
+        "description": "I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item. Buyers like to know what they’re getting before they purchase, so give them as much information as possible so they can buy with confidence and certainty.",
         "price": "6.99",
-        "qty": "50",
+        "item": "cheese-item",
         "class": 'cheese-img',
-        "mainclass": "exmpl-one"
-      },
-      {
+        "mainclass": "exmpl-one",
+        "policy": "I’m a Return and Refund policy. I’m a great place to let your customers know what to do in case they are dissatisfied with their purchase. Having a straightforward refund or exchange policy is a great way to build trust and reassure your customers that they can buy with confidence."
+        },
+        {
         "id": "Bacon",
         "title": "SMOKED VIRGINIA STEAK",
-        "description": "Describe your service here a for studio session. What makes it great? Use short catchy text to tell people what you offer, and the benefits they will receive. A great description gets readers in the mood, and makes them more likely to go ahead and book.",
-        "info": "1/30 hr | Photo Session",
+        "description": "I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item. Buyers like to know what they’re getting before they purchase, so give them as much information as possible so they can buy with confidence and certainty.",
         "price": "12.99",
-        "qty": "60",
+        "item": "bacon-item",
         "class": "steak-img",
-        "mainclass": "exmpl-two"
-      },
-      {
+        "mainclass": "exmpl-two",
+        "policy": "I’m a Return and Refund policy. I’m a great place to let your customers know what to do in case they are dissatisfied with their purchase. Having a straightforward refund or exchange policy is a great way to build trust and reassure your customers that they can buy with confidence."
+        },
+        {
         "id": "Olives",
         "title": "GREEK KALAMATA PEPPERS",
-        "description": "Describe your service here for a couple session. What makes it great? Use short catchy text to tell people what you offer, and the benefits they will receive. A great description gets readers in the mood, and makes them more likely to go ahead and book.",
-        "info": "2 hrs | Photo Session",
+        "description": "I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item. Buyers like to know what they’re getting before they purchase, so give them as much information as possible so they can buy with confidence and certainty.",
         "price": "8.99",
-        "qty": "80",
+        "item": "olive-item",
         "class": "pepper-img",
-        "mainclass": "exmpl-three"
-      }
+        "mainclass": "exmpl-three",
+        "policy": "I’m a Return and Refund policy. I’m a great place to let your customers know what to do in case they are dissatisfied with their purchase. Having a straightforward refund or exchange policy is a great way to build trust and reassure your customers that they can buy with confidence."
+        }
     ]
   }
 
   w3_open = ()=> {
-  document.getElementById("my-sidebar").setAttribute('class', 'showup' );
+  document.getElementById("popup-menu").setAttribute('class', 'showup' );
 
   }
   w3_close = ()=> {
-      document.getElementById("my-sidebar").setAttribute('class', 'my-sidebar');
+      document.getElementById("popup-menu").setAttribute('class', 'popup-menu');
+  }
+
+  checkProduct = (product) => {
+    const items = this.state.products
+
+    const itemFilter = items.filter((p) => p.id === product.id)
+
+    this.setState(prevState => ({
+      products: prevState.products = itemFilter
+    }))
   }
 
   show_cart = ()=> {
@@ -58,6 +69,52 @@ class App extends Component {
   close_cart = ()=> {
     document.getElementById('cart-menu').setAttribute('class', 'cart-menu');
     document.getElementById('page-content').removeAttribute('style','filter: blur(3px); -webkit-filter: blur(3px)');
+  }
+
+  addQtyToCart = ()=> {
+
+    const cartQty = document.getElementById('qty-input').value
+    const itemPrice = document.getElementById('item-check-price').innerHTML
+    const total = parseFloat(itemPrice) * cartQty
+
+    if ( cartQty == 0 && cartQty == '' ) {
+      document.getElementById('show-item').style.display= 'none'
+      document.getElementById('cart-qty').innerHTML = '0'
+      document.getElementById('cart-qty-cell').innerHTML = '0'
+      document.getElementById('cart-items-qty').innerHTML = 'Cart is Empty'
+      document.getElementById('cart-items-qty').style.marginLeft = '100px'
+      document.getElementById('cart-items-qty').style.marginTop = '150px'
+      document.getElementById('cart-content').style.backgroundColor = 'transparent'
+      document.getElementById('remove-item').style.display= 'none'
+      document.getElementById('total-price-header').style.display = 'none'
+      document.getElementById('cart-items-qty-header').style.display = 'none'
+    } else {
+      document.getElementById('show-item').style.display= ''
+      document.getElementById('total-price-header').style.display = ''
+      document.getElementById('cart-items-qty-header').style.display = ''
+      document.getElementById('cart-qty').innerHTML = cartQty
+      document.getElementById('cart-items-qty').style.marginLeft = '2px'
+      document.getElementById('cart-items-qty').style.marginTop = '0px'
+      document.getElementById('cart-qty-cell').innerHTML = cartQty
+      document.getElementById('cart-items-qty').innerHTML = cartQty
+      document.getElementById('remove-item').style.display= ''
+      document.getElementById('total-price').innerHTML = total
+      document.getElementById('cart-content').style.backgroundColor = '#222'
+    }
+  }
+
+  removeCartItem = () => {
+    document.getElementById('show-item').style.display = 'none'
+    document.getElementById('cart-qty').innerHTML = '0'
+    document.getElementById('cart-qty-cell').innerHTML = '0'
+    document.getElementById('cart-items-qty').innerHTML = 'Cart is Empty'
+    document.getElementById('cart-items-qty').style.marginLeft = '100px'
+    document.getElementById('cart-items-qty').style.marginTop = '150px'
+    document.getElementById('cart-content').style.backgroundColor = 'transparent'
+    document.getElementById('remove-item').style.display = 'none'
+    document.getElementById('qty-input').value = ''
+    document.getElementById('total-price-header').style.display = 'none'
+    document.getElementById('cart-items-qty-header').style.display = 'none'
   }
 
   goToAnchorCero = () => {
@@ -76,9 +133,11 @@ class App extends Component {
 
   render() {
 
-    function refreshPage(){
+    function refreshPage() {
+      setTimeout(function() {
         window.location.reload();
-    }
+      }, 500);
+  }
 
     return (
       <div className="App">
@@ -90,11 +149,38 @@ class App extends Component {
             >X</div>
           </div>
         </div>
+        <div id="cart-content" className="cart-content">
+          {this.state.products.map((product) => (
+            <div id="show-item" className="show-item" key={product.id} style={{display: 'none'}}>
+              <div className="item-header">
+                <div className="item-name">{product.title}
+                  <div id="remove-item" className="remove-item" style={{ display: 'none'}}
+                    onClick={ (event) => { this.removeCartItem(); }}
+                  >X</div>
+                </div>
+              </div>
+            <div className="item-check-field">
+              <div className={product.item}></div>
+              <div className="item-check-detail">
+                <div>Price: $</div>
+                <div id="item-check-price" className="item-check-price">{product.price}</div>
+              </div>
+            </div>
+            </div>
+          ))}
+          <div className="cart-items-qty-content">
+            <div id="cart-items-qty-header" className="cart-items-qty-header" style={{display: 'none'}}>Items Qty:</div>
+            <div id="cart-items-qty" className="cart-items-qty">Cart is empty</div>
+          </div>
+          <div id="total-price-header" className="total-price-header" style={{display: 'none'}}>SubTotal: $
+            <div id="total-price" className="total-price"></div>
+          </div>
+        </div>
       </div>
       <div role="navigation" id="navbar-cell" className="navbar-cell">
         <div className="cart-container"
           onKeyPress={this.show_cart} onClick={this.show_cart}>
-          <div className="cart-qty-cell">0</div>
+          <div id="cart-qty-cell" className="cart-qty-cell">0</div>
           <div className="cart-icon">
           </div>
         </div>
@@ -107,7 +193,7 @@ class App extends Component {
           </div>
         </div>
       </div>
-      <div id="my-sidebar" className="my-sidebar">
+      <div id="popup-menu" className="popup-menu">
         <button className="w3-button"
           onClick={ (event) => {
             this.w3_close(); this.goToAnchorCero();
@@ -116,7 +202,7 @@ class App extends Component {
             <Link to='/' tabIndex="-1">
               <button id="w3-bar-item" className="w3-bar-item"
                 onClick={ (event) => {
-                  this.w3_close(); this.goToAnchorCero();
+                  this.w3_close(); this.goToAnchorCero(); refreshPage();
                 }}>Home</button>
             </Link>
             <Link to='./aboutus' tabIndex="-1">
@@ -128,7 +214,7 @@ class App extends Component {
             <Link to='' tabIndex="-1">
               <button id="w3-bar-item" className="w3-bar-item"
                 onClick={ (event) => {
-                  this.w3_close(); this.goToAnchorOne();
+                  this.w3_close(); this.goToAnchorOne(); refreshPage();
               }}>Products</button>
             </Link>
             <Link to='./findus' tabIndex="-1">
@@ -145,7 +231,7 @@ class App extends Component {
         <Link to='./' tabIndex="-1">
           <button className="item"
             onClick={ (event) => {
-              this.w3_close(); this.goToAnchorCero();
+              this.w3_close(); this.goToAnchorCero(); refreshPage();
             }}
           >Home</button>
         </Link>
@@ -159,7 +245,7 @@ class App extends Component {
         <Link to='./' tabIndex="-1">
           <button className="item"
             onClick={ (event) => {
-              this.w3_close(); this.goToAnchorOne();
+              this.w3_close(); this.goToAnchorOne(); refreshPage();
             }}
           >Products</button>
         </Link>
@@ -174,7 +260,7 @@ class App extends Component {
         <div className="topnav-right">
           <div className="cart-container"
           onKeyPress={this.show_cart} onClick={this.show_cart}>
-            <div className="cart-qty">0</div>
+            <div id="cart-qty" className="cart-qty">0</div>
             <button className="cart-icon"></button>
           </div>
       </div>
@@ -185,7 +271,15 @@ class App extends Component {
         <Route exact path='/' render={()=>(
           <MainPage
             products={ this.state.products }
+            onProductCheck={ this.goToAnchorCero }
             onShop={ this.goToAnchorOne }
+            onSelectProduct={ this.checkProduct }
+          />
+        ) }/>
+        <Route exact path='/checkingproduct' render={()=>(
+          <CheckingProduct
+            products={ this.state.products }
+            onAddToCart={ this.addQtyToCart }
           />
         ) }/>
         <Route path='/aboutus' render={()=>(
